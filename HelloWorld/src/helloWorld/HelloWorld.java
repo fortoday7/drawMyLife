@@ -2,12 +2,13 @@ package helloWorld;
 
 public class HelloWorld {
 	public static void main(String[] args) {
-		System.out.println("�̸��� out!!");
+		System.out.println("ÀÌ¸í¹Ú out!!");
 		System.out.println("World's HI");
-		System.out.println("박근 out!!");
+		System.out.println("ë°•ê·¼ out!!");
 		System.out.println("World's HI");
 		System.out.println("Hello World 222");
 
+		System.out.println("Get up Hotsan!");
 
 		System.out.println("Hello parkKeunHye");
 		System.out.println("hello");
