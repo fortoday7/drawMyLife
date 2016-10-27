@@ -2,7 +2,7 @@ package helloWorld;
 
 public class HelloWorld {
 	public static void main(String[] args) {
-
+		System.out.println("ÀÌ¸í¹Ú out!!");
 		System.out.println("World's HI");
 		System.out.println("Hello World 222");
 
