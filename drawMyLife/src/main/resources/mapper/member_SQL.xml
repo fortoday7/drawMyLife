@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	private int mno;
+	private String email;
+	private String pwd;
+	private String mname;
+	private Date creDate;
+	private Date modDate;
+ -->
+<mapper namespace="member">
+	<select id="selectMemberList" resultType="hashmap">
+		SELECT * FROM MEMBERS
+		     
+	</select>
+	
+	<select id="insertMember" parameterType="memberVo">
+		INSERT INTO MEMBERS(EMAIL,PWD,MNAME,CRE_DATE,MOD_DATE)
+		VALUES(#{email},#{pwd},#{mname},now(),now())		     
+	</select>
+	
+	<select id="selectId" resultType="Int" parameterType="memberVo">
+		SELECT COUNT(1) FROM MEMBERS
+		WHERE EMAIL=#{email}		     
+	</select>
+	<select id="selectIdAndPw" resultType="Int" parameterType="memberVo">
+		SELECT COUNT(1) FROM MEMBERS
+		WHERE EMAIL=#{email} AND PWD=#{pwd}		     
+	</select>
+	<select id="selectOneInfo" resultType="memberVo" parameterType="memberVo">
+		SELECT mno, email, pwd, mname, CRE_DATE AS creDate, MOD_DATE AS modDate FROM MEMBERS
+		WHERE EMAIL=#{email} AND PWD=#{pwd}
+	</select>
+	
+	
+</mapper>

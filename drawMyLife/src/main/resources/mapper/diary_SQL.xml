@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DIARY_ID
+MEMBER_ID
+WRITE_DATE
+MODIFY_DATE
+TITLE
+CONTENT
+EVALUATION -->
+<!-- 
+	private int diaryId;
+	private int memberId;
+	private Date writeDate;
+	private Date modifyDate;
+	private String title;
+	private String content;
+	private int evaluation; -->
+<mapper namespace="diary">
+	<select id="insertDiary" parameterType="diaryVo">
+		INSERT INTO DIARY (MEMBER_ID,WRITE_DATE,MODIFY_DATE,TITLE,CONTENT,EVALUATION) 
+		 VALUES (#{memberId},now(),now(),#{title},#{content},#{evaluation});
+		     
+	</select>
+	<!-- selectList -->
+	
+	<select id="selectList" parameterType="hashmap" resultType="diaryVo">
+		SELECT 
+			DIARY_ID as diaryId ,
+			MEMBER_ID as memberId,
+			WRITE_DATE as writeDate,
+			MODIFY_DATE as modifyDate,
+			TITLE,
+			CONTENT,
+			EVALUATION
+		FROM DIARY
+		ORDER BY DIARY_ID DESC
+		LIMIT #{start},20;
+	</select>
+</mapper>
